@@ -24,6 +24,10 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
+repositories {
+    jcenter()
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion '23.0.2'
