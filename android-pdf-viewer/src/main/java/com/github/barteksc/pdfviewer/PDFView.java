@@ -464,7 +464,7 @@ public class PDFView extends RelativeLayout {
         scrollHandle = null;
         isScrollHandleInit = false;
         currentXOffset = currentYOffset = 0;
-        zoom = 1f;
+        zoom = 2f;
         recycled = true;
         state = State.DEFAULT;
     }
