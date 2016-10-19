@@ -1128,6 +1128,8 @@ public class PDFView extends RelativeLayout {
         return new Configurator(file.getAbsolutePath(), false);
     }
 
+
+
     /**
      * Use Uri as the pdf source, for use with content provider
      */
