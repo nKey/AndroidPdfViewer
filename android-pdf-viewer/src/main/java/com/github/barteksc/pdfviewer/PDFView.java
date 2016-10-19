@@ -28,7 +28,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.github.barteksc.pdfviewer.exception.FileNotFoundException;
@@ -529,7 +528,7 @@ public class PDFView extends RelativeLayout {
         // abstraction of the screen position when rendering the parts.
 
         // Draws background
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.BLACK);
 
         if (recycled) {
             return;

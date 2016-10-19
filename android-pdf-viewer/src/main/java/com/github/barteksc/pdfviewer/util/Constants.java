@@ -47,7 +47,7 @@ public interface Constants {
 
         float MAXIMUM_ZOOM = 10;
 
-        float MINIMUM_ZOOM = 1;
+        float MINIMUM_ZOOM = 2;
 
     }
 
