@@ -1,3 +1,16 @@
+## 2.3.0 (2016-11-19)
+* Add mechanism for providing documents from different sources - more info in README
+* Update PdfiumAndroid to 1.5.0
+* Thanks to document sources and PdfiumAndroid update, in-memory documents are supported
+* Fix not working OnClickListener on PDFView
+* **com.github.barteksc.exception.FileNotFoundException** is deprecated and all usages was removed.
+All exceptions are delivered to old Configurator#onError() listener.
+
+## 2.2.0 (2016-11-15)
+* Merge pull request by [skarempudi](https://github.com/skarempudi) which fixes SDK 23 permission problems in sample app
+* Merge pull request by skarempudi for showing info on phones without file manager
+* Add feature from 1.x - canvas is set to drawable from View#getBackground()
+
 ## 2.1.0 (2016-09-16)
 * fixed loading document from subfolder in assets directory
 * fixed scroll handle NPE after document loading error (improvement of 2.0.3 fix)

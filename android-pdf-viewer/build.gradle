@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/barteksc/AndroidPdfViewer'
     gitUrl = 'https://github.com/barteksc/AndroidPdfViewer.git'
 
-    libraryVersion = '2.1.0'
+    libraryVersion = '2.3.0'
 
     developerId = 'barteksc'
     developerName = 'Bartosz Schiller'
@@ -30,17 +30,17 @@ repositories {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
-        versionName "2.1.0"
+        versionName "2.3.0"
     }
 
 }
 
 dependencies {
-    compile 'com.github.barteksc:pdfium-android:1.4.0'
+    compile 'com.github.barteksc:pdfium-android:1.5.0'
 }
