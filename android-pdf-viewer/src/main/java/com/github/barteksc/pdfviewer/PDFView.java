@@ -51,7 +51,6 @@ import com.shockwave.pdfium.PdfDocument;
 import com.shockwave.pdfium.PdfiumCore;
 
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -564,6 +563,8 @@ public class PDFView extends RelativeLayout {
             drawPart(canvas, part);
         }
 
+        drawPagesMargin(canvas);
+
         // Draws the user layer
         if (onDrawListener != null) {
             canvas.translate(toCurrentScale(currentFilteredPage * optimalPageWidth), 0);
@@ -578,6 +579,55 @@ public class PDFView extends RelativeLayout {
 
         // Restores the canvas position
         canvas.translate(-currentXOffset, -currentYOffset);
+    }
+
+    private void drawPagesMargin(Canvas canvas) {
+        for (int i = 0; i < getPageCount(); i++) {
+            drawPageMargin(canvas, i);
+        }
+    }
+
+    private void drawPageMargin(Canvas canvas, int page) {
+        // Move to the target page
+        float localTranslationX = 0;
+        float localTranslationY = 0;
+        if (swipeVertical)
+            localTranslationY = toCurrentScale(page * optimalPageHeight);
+        else
+            localTranslationX = toCurrentScale(page * optimalPageWidth);
+        canvas.translate(localTranslationX, localTranslationY);
+
+        //TODO have configurable page margins
+        RectF pageRelativeBounds = new RectF(0, 0, 1, 1);
+
+        float offsetX = toCurrentScale(pageRelativeBounds.left * optimalPageWidth);
+        float offsetY = toCurrentScale(pageRelativeBounds.top * optimalPageHeight);
+        float width = toCurrentScale(pageRelativeBounds.width() * optimalPageWidth);
+        float height = toCurrentScale(pageRelativeBounds.height() * optimalPageHeight);
+
+        // If we use float values for this rectangle, there will be
+        // a possible gap between page parts, especially when
+        // the zoom level is high.
+        RectF dstRect = new RectF((int) offsetX, (int) offsetY,
+                (int) (offsetX + width),
+                (int) (offsetY + height));
+
+        // Check if bitmap is in the screen
+        float translationX = currentXOffset + localTranslationX;
+        float translationY = currentYOffset + localTranslationY;
+        if (translationX + dstRect.left >= getWidth() || translationX + dstRect.right <= 0 ||
+                translationY + dstRect.top >= getHeight() || translationY + dstRect.bottom <= 0) {
+            canvas.translate(-localTranslationX, -localTranslationY);
+            return;
+        }
+
+        paint.setColor(Color.BLACK);
+        paint.setStyle(Style.STROKE);
+        paint.setStrokeWidth(2);
+        canvas.drawRect(dstRect, paint);
+
+        // Restores the canvas local position
+        canvas.translate(-localTranslationX, -localTranslationY);
     }
 
     /**
