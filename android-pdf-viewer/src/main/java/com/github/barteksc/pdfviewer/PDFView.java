@@ -780,11 +780,10 @@ public class PDFView extends RelativeLayout {
             isScrollHandleInit = true;
         }
 
+        jumpTo(defaultPage, false);
         if (onLoadCompleteListener != null) {
             onLoadCompleteListener.loadComplete(documentPageCount);
         }
-
-        jumpTo(defaultPage, false);
     }
 
     void loadError(Throwable t) {
