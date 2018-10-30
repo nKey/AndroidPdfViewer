@@ -29,11 +29,11 @@ repositories {
 }
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 26
 
     defaultConfig {
         minSdkVersion 11
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "2.5.0"
     }
