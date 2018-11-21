@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    compile 'com.github.barteksc:pdfium-android:1.6.0'
+    implementation 'com.github.barteksc:pdfium-android:1.6.0'
 }
 
 if (project.rootProject.file('local.properties').exists()) {
