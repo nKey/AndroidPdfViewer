@@ -36,6 +36,7 @@ android {
         targetSdkVersion 26
         versionCode 1
         versionName "2.5.0"
+        consumerProguardFiles 'proguard-rules.pro'
     }
 
 }
