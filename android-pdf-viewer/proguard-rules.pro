@@ -22,3 +22,5 @@
 -keepclassmembers class **.BuildConfig {
     <fields>;
 }
+
+-keep class com.shockwave.pdfium.PdfiumCore { *; }
